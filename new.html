@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ScaleUp - Mobile</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.cdnfonts.com/css/europa" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: "Europa", sans-serif;
+      background-color: #000000;
+      background-image: linear-gradient(135deg, #000000 0%, rgba(53, 51, 205, 0.35) 60%);
+      background-attachment: fixed;
+      background-size: cover;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: inherit;
+      backdrop-filter: blur(8px);
+      z-index: -1;
+    }
+
+    h1, h2, h3 { font-family: "SF Pro Display", sans-serif; font-weight: 400; }
+    p, input, textarea, button, a, span { font-family: "Europa", sans-serif; }
+
+    /* 📌 Default Tablet */
+    h1 { font-size: 1.7rem; }
+    h2 { font-size: 1.3rem; }
+    h3 { font-size: 1.5rem; margin-top: 1.5rem; }
+    p  { font-size: 1rem; line-height: 1.6; }
+
+    /* 💻 Desktop */
+    @media (min-width: 1025px) {
+      h1 { font-size: 1.7rem; }
+      h2 { font-size: 1.4rem; }
+      h3 { font-size: 1.5rem; }
+      p  { font-size: 1rem; }
+    }
+
+    /* 📱 Large Phones */
+    @media (max-width: 768px) {
+      h1 { font-size: 1.6rem; }
+      h2 { font-size: 1.1rem; }
+      h3 { font-size: 1.2rem; }
+      p  { font-size: 0.9rem; }
+    }
+
+    /* 📱 Small Phones */
+    @media (max-width: 480px) {
+      h1 { font-size: 1.1rem; }
+      h2 { font-size: 0.9rem; }
+      h3 { font-size: 0.9rem; }
+      p  { font-size: 0.8rem; }
+    }
+
+    h1 .highlight {
+      color: #3533cd;
+      font-weight: 1000;
+    }
+    .tagline {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 400;
+      opacity: 100%;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Mobile Navbar */
+    .mobile-nav {
+      position: fixed;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1000px;
+      height: 55px;
+      background: linear-gradient(135deg, rgba(53, 51, 205, 0.25), rgba(168, 121, 255, 0.15));
+      backdrop-filter: blur(25px) saturate(180%);
+      border: 1px solid rgba(255,255,255,0.25);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 16px;
+      border-radius: 16px;
+      z-index: 1000;
+      transition: all 0.3s ease-in-out;
+    }
+    .mobile-nav .logo img { height: 60px; transition: none; }
+
+    /* CTA */
+    .btn {
+      display:inline-block;
+      background: linear-gradient(135deg, rgba(53, 51, 205, 0.25), rgba(168, 121, 255, 0.15));
+      padding:0.6rem 1.2rem;
+      border-radius:8px;
+      color:#fff;
+      text-decoration:none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: scale(0.95); opacity: 0.9; }
+
+    .mobile-nav.scrolled { width: 100px; max-width: 200px; }
+    .mobile-nav.scrolled .btn { padding:0.4rem 0.8rem; font-size: 1.2rem; }
+    .mobile-nav.scrolled .btn span.text { display: none; }
+    .mobile-nav.scrolled .btn span.arrow { display: inline; }
+     
+    /* Hero section */
+    .hero {
+      margin: 100px auto 40px;
+      padding: 1.5rem;
+      max-width: 700px;
+      text-align: center;
+    }
+    .hero p {
+      font-size: 1rem;
+      max-width: 500px;
+      margin: 0 auto 2rem;
+    }
+
+    .section-glass-heading {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 6px 10px;
+      font-size: 0.70rem;
+      font-weight: 450;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, rgba(53, 51, 205, 0.30), rgba(168, 121, 255, 0.15));
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    section { margin:40px auto; padding:20px; text-align:center; max-width: 800px; }
+
+    .how-it-works-text { text-align: left; margin-top: 20px; }
+
+    form {
+      max-width:800px;
+      margin:5px auto;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    input, textarea {
+      padding:12px;
+      border:none;
+      border-radius:12px;
+      background:linear-gradient(135deg, rgba(53, 51, 205, 0.25), rgba(168, 121, 255, 0.15));
+      color:#ffffff;
+      font-size:1rem;
+    }
+    button {
+      padding:12px;
+      border:none;
+      border-radius:12px;
+      background: linear-gradient(135deg, #000000, #3533cd);
+      color:#fff;
+      cursor:pointer;
+    }
+
+    .calendly-inline-widget {
+      margin: 40px auto 20px;
+      width: 100%;
+      height: 800px;
+    }
+
+    footer {
+      margin-top:30px; padding:15px; text-align:center;
+      background: linear-gradient(135deg, rgba(2, 27, 84, 0.5), rgba(75, 3, 133, 0.5));
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mobile Navbar -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="logo"><img src="logo.png" alt="ScaleUp Logo"></div>
+    <a href="#contact" class="btn">
+      <span class="text">Book a Call</span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero" id="home">
+    <div class="section-glass-heading">Coaches Scaling to $50k+ with 1:1 Programs</div>
+    <h1>
+      We Turn Your <span class="highlight">Personal Brand</span> Into a 
+      <span class="highlight">Lead-Generating</span> 
+      <span class="highlight">Machine</span> To Fill Your 
+      <span class="highlight">1:1</span> Coaching Program – 
+      <span class="highlight">Organically</span>.
+    </h1>
+    <p>
+      <span class="tagline">You coach. We scale.<br>
+      Let’s grow your 1:1 offer — no guesswork, no fluff.</span>
+    </p>
+    <a href="#contact" class="btn">Book a Call →</a>
+  </header>
+
+  <!-- How It Works -->
+  <section id="what">
+    <div class="section-glass-heading">How It Works</div>
+    <div class="how-it-works-text">
+      <h3>1. Scale Your 1:1 Coaching With a Content Strategy Built for You</h3>
+      <p>
+        We study your business in depth and create a tailored content strategy that perfectly aligns with your 1:1 coaching program.  
+        You’ll get content ideas customized for your niche, tone, and goals.  
+        All it takes is <strong>2 hours a week</strong> to record simple videos — a small move that delivers massive ROI.
+      </p>
+
+      <h3>2. We Script Your Videos for You</h3>
+      <p>
+        Clear, compelling messaging drives results.  
+        Whether you’re making short-form content for Instagram, TikTok, or Reels — or long-form YouTube videos — your message must engage quickly and effectively.  
+        Every month, we deliver <strong>high-converting scripts</strong> written for your business, voice, and offer.  
+        You just show up and share your expertise with confidence.  
+        Strategic scripting = powerful content.  
+        Powerful content = consistent leads, accelerated sales, and growing authority.
+      </p>
+
+      <h3>3. We Edit Videos With Clarity and Purpose</h3>
+      <p>
+        Our editing style makes your videos easy to follow, visually engaging, and aligned with your message.  
+        Each edit is designed to help your audience instantly understand what you do — and inspire them to take action.  
+        The result? Content that converts and grows your business.
+      </p>
+
+      <h3>4. We Design Thumbnails That Attract High-Ticket Clients</h3>
+      <p>
+        Your thumbnail decides whether someone clicks or scrolls past.  
+        We design thumbnails that grab attention, reflect your brand, and drive results.  
+        The outcome? A channel that attracts not just views, but clients ready to invest.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="section-glass-heading">Contact Us</div>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="4" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="calendly-inline-widget" data-url="https://calendly.com/shayanaamir55/30min"></div>
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© ScaleUp </p>
+  </footer>
+
+  <script>
+    const mobileNav = document.getElementById("mobileNav");
+    const contactSection = document.getElementById("contact");
+
+    window.addEventListener("scroll", () => {
+      const formTop = contactSection.getBoundingClientRect().top;
+      if (formTop <= 50) {
+        mobileNav.classList.add("scrolled");
+      } else {
+        mobileNav.classList.remove("scrolled");
+      }
+    });
+  </script>
+</body>
+</html>
