@@ -40,32 +40,36 @@
 
     /* 📌 Default = Tablet (your current base) */
    h1 { font-size: 1.7rem; }
-   h2 { font-size: 1.3rem; }
-   h3 { font-size: 1rem; }
+   h2 { font-size: 1rem; }
+   h3 { font-size: 1.3rem; }
    p  { font-size: 1rem; }
+   li { font-size: 0.7rem; }
 
     /* 💻 Larger screens (Desktop / Laptop) */
     @media (min-width: 1025px) {
   h1 { font-size: 1.7rem; }
   h2 { font-size: 1.4rem; }
-  h3 { font-size: 1rem; }
-  p  { font-size: 1rem; }
+  h3 { font-size: 1.1rem; }
+  p  { font-size: 0.9rem; }
+  li { font-size: 0.7rem; }
     }
 
 /* 📱 Large Phones (Portrait < 768px) */
 @media (max-width: 768px) {
   h1 { font-size: 1.6rem; }
   h2 { font-size: 1.1rem; }
-  h3 { font-size: 0.8rem; }
-  p  { font-size: 0.9rem; }
+  h3 { font-size: 1rem; }
+  p  { font-size: 0.8rem; }
+  li { font-size: 0.6rem; }
     }
 
 /* 📱 Small Phones (< 480px) */
 @media (max-width: 480px) {
   h1 { font-size: 1.1rem; }
   h2 { font-size: 0.3rem; }
-  h3 { font-size: 0.5rem; }
-  p  { font-size: 0.7rem; }
+  h3 { font-size: 0.8rem; }
+  p  { font-size: 0.6rem; }
+  li { font-size: 0.6rem; }
     }
     h1 .highlight {
       color: #3533cd;
@@ -77,7 +81,7 @@
     }
 .tagline {
   display: block;
-  font-size: 0.8rem;  /* smaller text */
+  font-size: 0.7rem;  /* smaller text */
   font-weight: 400;
   opacity: 100%;
   margin-bottom: 0.5rem;
@@ -157,7 +161,7 @@
       display: inline-block;
       margin-bottom: 1rem;
       padding: 6px 10px;
-      font-size: 0.70rem;
+      font-size: 0.60rem;
       font-weight: 450;
       letter-spacing: 1px;
       background:(135degrgba(53, 51, 205, 0.30) 60%);
@@ -186,8 +190,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
-      font-size: 0.8rem;
-     text-align: left;
+      text-align: left;
      
     }
     .comparison .step-card h3 {
