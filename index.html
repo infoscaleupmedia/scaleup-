@@ -41,14 +41,14 @@
     /* 📌 Default = Tablet (your current base) */
    h1 { font-size: 1.7rem; }
    h2 { font-size: 1.3rem; }
-   h3 { font-size: 1.5rem; }
+   h3 { font-size: 1rem; }
    p  { font-size: 1rem; }
 
     /* 💻 Larger screens (Desktop / Laptop) */
     @media (min-width: 1025px) {
   h1 { font-size: 1.7rem; }
   h2 { font-size: 1.4rem; }
-  h3 { font-size: 1.5rem; }
+  h3 { font-size: 1rem; }
   p  { font-size: 1rem; }
     }
 
@@ -56,7 +56,7 @@
 @media (max-width: 768px) {
   h1 { font-size: 1.6rem; }
   h2 { font-size: 1.1rem; }
-  h3 { font-size: 1.2rem; }
+  h3 { font-size: 0.8rem; }
   p  { font-size: 0.9rem; }
     }
 
@@ -64,12 +64,16 @@
 @media (max-width: 480px) {
   h1 { font-size: 1.1rem; }
   h2 { font-size: 0.3rem; }
-  h3 { font-size: 0.8rem; }
+  h3 { font-size: 0.5rem; }
   p  { font-size: 0.7rem; }
     }
     h1 .highlight {
       color: #3533cd;
       font-weight: 1000;
+      height: 3px;
+    }
+    h3 {
+      font-weight: 800;
     }
 .tagline {
   display: block;
@@ -169,25 +173,48 @@
       max-width: 800px;
     }
 
-    /* Step cards with glow + tilt */
-    .steps { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 20px; }
+    /* ✅ Step Descriptions (plain text, no card) */
+    .step-description {
+      margin: 50px auto;
+      max-width: 700px;
+      text-align: left;
+      font-weight: 300;
+    }
 
+    /* ✅ Comparison Cards */
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      font-size: 0.8rem;
+     text-align: left;
+     
+    }
+    .comparison .step-card h3 {
+  text-align: center;   /* center only the heading */
+  margin-bottom: 15px;  /* add space below the heading */
+}
+
+.comparison li {
+  margin-bottom: 8px;  /* space between list items */
+  line-height: 1;     /* improve readability */
+  text-align: left;     /* keep list text aligned left */
+}
     .step-card {
       position: relative;
       overflow: hidden;
       border-radius: 16px;
-      background:(135deg rgba(53, 51, 205, 0.30) 60%);
       backdrop-filter: blur(20px) saturate(160%);
       border: 1px solid rgba(255, 255, 255, 0.25);
-      padding: 1.5rem;
-      text-align: left;
+      padding: 1rem;
+      text-align: middle;
       transition: transform 0.15s ease, box-shadow 0.4s ease;
+      font-weight: 400;
+      
     }
-
     .step-card::before {
       content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
       background: radial-gradient(
         250px circle at var(--x, 50%) var(--y, 50%),
         rgba(168, 121, 255, 0.35),
@@ -198,6 +225,8 @@
       pointer-events: none;
     }
     .step-card:hover::before { opacity: 1; }
+    .step-card ul { margin: 0; padding-left: 18px; }
+
 
     form {
       max-width:800px;
@@ -286,43 +315,57 @@
   </header>
 
   <!-- How It Works -->
-  <section id="what">
-    <div class="section-glass-heading">How It Works</div>
-    <div class="steps">
-      <div class="step-card">
-        <h3>1. Scale Your 1:1 Coaching With a Content Strategy Built Just for You</h3>
-        <p>
-        After studying your business inside and out, we design a **custom strategies** that aligns perfectly with your 1:1 coaching program.
-        You'll receive **content ideas** tailored to your niche, tone, and goals.
-        All you need? Just **2 hours a week** to record simple talking-head videos.
-        **Small move, massive ROI.** That’s the power of strategic content.
-        </p>
-      </div>
+<section id="what">
+  <div class="section-glass-heading">How It Works</div>
 
-      <!-- Step 2 -->
-      <div class="step-card">
-        <h3>2. We Script your videos for you</h3>
-        <p>
-        **Clear, Compelling Messaging Drives Results.**
-        Whether you’re creating short-form videos for Instagram, TikTok, or Reels, or diving into long-form YouTube content, your message must captivate — quickly and effectively.
-        Each month, we deliver **high-converting scripts** tailored to your coaching business, authentic voice, and unique offer — designed to maximize impact across formats.
-        Your role? Simply show up and share your expertise with confidence.
-        </p>
-      </div>
+  <!-- Step Descriptions -->
+  <div class="step-description">
+    <h3><b>1. Scale Your 1:1 Coaching With a Custom Content Strategy</b></h3>
+    <p>
+      We analyze your business and create a strategy aligned with your 1:1 coaching program. You’ll get content ideas tailored to your niche, tone, and goals. Just two hours a week of simple video recording delivers big results.
+    </p>
+  </div>
 
-      <!-- Step 3 -->
-      <div class="step-card">
-        <h3>3. We Create catchy thumbnails that attract High Ticket Clients</h3>
-        <p>
-      Your thumbnail is the first thing people see—and it decides whether they click or scroll away.
-      We create thumbnails tailored to your brand and messaging, designed to grab attention and maximize performance.
-      Our goal is clear: deliver professional, eye-catching thumbnails that not only attract viewers but also convert them into leads and high-ticket clients.
-      The outcome?
-      A channel that drives business growth—not just views.
-        </p>
-      </div>
+  <div class="step-description">
+    <h3>2. We Edit Videos With Clarity and Purpose</h3>
+    <p>
+      We make your videos clear, engaging, and aligned with your message so your audience knows exactly what you do. Every edit is designed to hold attention and convert viewers into clients.
+    <p>
+  </div>
+
+  <div class="step-description">
+    <h3>3. We Script Your Videos For You</h3>
+    <p> We write high-converting scripts tailored to your business, voice, and offer. Whether short or long-form, your message will grab attention and drive results. You only need to show up and share your expertise.
+    </p>
+  </div>
+
+  <div class="step-description">
+    <h3>4. We Create Thumbnails That Attract High-Ticket Clients</h3>
+    <p>
+     We design professional thumbnails that grab attention, increase clicks, and turn viewers into clients. The outcome: a channel that drives growth, not just views.
+    </p>
+  </div>
+
+  <!-- Comparison -->
+  <div class="comparison">
+    <div class="step-card">
+      <h3>Old Ways</h3>
+      <ul>
+        <li>Spending endless hours guessing content ideas</li>
+        <li>No clear strategy to scale 1:1 coaching</li>
+        <li>Struggling to stay consistent</li>
+      </ul>
     </div>
-  </section>
+    <div class="step-card">
+      <h3>New Ways</h3>
+      <ul>
+        <li>People believe in content — it’s a life-changing decision</li>
+        <li>Clients trust you more when you manage your social media</li>
+        <li>It attracts high-ticket clients</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
   <!-- Contact -->
   <section id="contact">
@@ -342,7 +385,8 @@
   <footer>
     <p>© ScaleUp </p>
   </footer>
-
+<!-- Toast -->
+  <div id="status"></div>
   <script>
        const mobileNav = document.getElementById("mobileNav");
        const contactSection = document.getElementById("contact");
