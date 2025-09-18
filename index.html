@@ -222,6 +222,27 @@
       color:#fff;
       cursor:pointer;
     }
+     /* ✅ Toast Notification */
+    #status {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #222;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      transform: translateY(20px);
+      z-index: 9999;
+    }
+    #status.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+   
 
     .calendly-inline-widget {
       margin: 40px auto 20px;
@@ -357,11 +378,19 @@
         card.style.transform = "scale(1)";
       });
     });
-   // ✅ Form AJAX Submit (No Redirect)
+    // ✅ Toast Notification Helper
+    function showStatus(message, type="success") {
+      const status = document.getElementById("status");
+      status.textContent = message;
+      status.className = `show ${type}`;
+      setTimeout(() => {
+        status.className = status.className.replace("show", "");
+      }, 2000);
+    }
+   // Form AJAX Submit (No Redirect)
     document.getElementById("contact-form").addEventListener("submit", async function(e) {
       e.preventDefault();
       const form = e.target;
-      const status = document.getElementById("status");
       const data = new FormData(form);
 
       try {
@@ -372,13 +401,13 @@
         });
 
         if (response.ok) {
-          status.innerText = "✅ Thanks! Your message has been sent.";
+          showStatus("Thanks! Your message has been sent.", "success");
           form.reset();
         } else {
-          status.innerText = "⚠️ Oops! Something went wrong.";
+          showStatus("Oops! Something went wrong.", "error");
         }
       } catch (error) {
-        status.innerText = "❌ Network error. Please try again.";
+        showStatus("Network error. Please try again.", "error");
       }
     });
   </script>
