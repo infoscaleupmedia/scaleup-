@@ -648,6 +648,18 @@
         }
       } catch (error) {
         showStatus("Network error. Please try again.", "error");
+        
+  // Detect if user is on mobile
+  if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    let theme = document.querySelector("meta[name='theme-color']");
+    if (!theme) {
+      theme = document.createElement("meta");
+      theme.setAttribute("name", "theme-color");
+      document.head.appendChild(theme);
+    }
+    theme.setAttribute("content", "#000000"); // Always black on mobile
+  }
+
       }
     });
   </script>
