@@ -16,7 +16,7 @@
       margin: 0;
       padding: 0;
       font-family: "Europa", sans-serif;
-      background-color: #000000;
+      background-color: #000;
       background-image: linear-gradient(135deg, #000000 0%, rgba(53, 51, 205, 0.35) 60%);
       background-attachment: fixed;
       background-size: cover;
@@ -40,7 +40,7 @@
 
     /* 📌 Default = Tablet (your current base) */
    h1 { font-size: 1.7rem; }
-   h2 { font-size: 1rem; }
+   h2 { font-size: 0.9rem; }
    h3 { font-size: 1.3rem; }
    p  { font-size: 1rem; }
    li { font-size: 0.7rem; }
@@ -48,8 +48,8 @@
     /* 💻 Larger screens (Desktop / Laptop) */
     @media (min-width: 1025px) {
   h1 { font-size: 1.7rem; }
-  h2 { font-size: 1.4rem; }
-  h3 { font-size: 1.1rem; }
+  h2 { font-size: 0.9rem; }
+  h3 { font-size: 1.3rem; }
   p  { font-size: 0.9rem; }
   li { font-size: 0.7rem; }
     }
@@ -57,18 +57,18 @@
 /* 📱 Large Phones (Portrait < 768px) */
 @media (max-width: 768px) {
   h1 { font-size: 1.6rem; }
-  h2 { font-size: 1.1rem; }
+  h2 { font-size: 0.7rem; }
   h3 { font-size: 1rem; }
   p  { font-size: 0.8rem; }
   li { font-size: 0.6rem; }
     }
 
-/* 📱 Small Phones (< 480px) */
-@media (max-width: 480px) {
+/* 📱 Small Phones (< 420px) */
+@media (max-width: 420px) {
   h1 { font-size: 1.1rem; }
-  h2 { font-size: 0.3rem; }
-  h3 { font-size: 0.8rem; }
-  p  { font-size: 0.6rem; }
+  h2 { font-size: 0.5rem; }
+  h3 { font-size: 1rem; }
+  p  { font-size: 0.8rem; }
   li { font-size: 0.6rem; }
     }
     h1 .highlight {
@@ -79,13 +79,7 @@
     h3 {
       font-weight: 800;
     }
-.tagline {
-  display: block;
-  font-size: 0.7rem;  /* smaller text */
-  font-weight: 400;
-  opacity: 100%;
-  margin-bottom: 0.5rem;
-    }
+    
     /* Mobile Navbar */
     .mobile-nav {
       position: fixed;
@@ -95,8 +89,7 @@
       width: 90%;
       max-width: 1000px;
       height: 55px;
-      background: linear-gradient(135deg, rgba(53, 51, 205, 0.25), rgba(168, 121, 255, 0.15));
-      backdrop-filter: blur(25px) saturate(180%);
+      background: rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255,255,255,0.25);
       display: flex;
       justify-content: space-between;
@@ -164,7 +157,7 @@
       font-size: 0.60rem;
       font-weight: 450;
       letter-spacing: 1px;
-      background:(135degrgba(53, 51, 205, 0.30) 60%);
+      background:rgba(0, 0, 0, 0.1);
       background-attachment: fixed;
       border-radius: 6px;
       border: 1px solid rgba(255, 255, 255, 0.15);
@@ -177,13 +170,101 @@
       max-width: 800px;
     }
 
-    /* ✅ Step Descriptions (plain text, no card) */
-    .step-description {
-      margin: 50px auto;
-      max-width: 700px;
-      text-align: left;
-      font-weight: 300;
-    }
+    /* Styles for the rephrased content from the images */
+  .step-section {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin: 50px auto;
+    max-width: 700px;
+    text-align: left;
+  }
+
+  .step-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .step-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* This is the updated style for the numbers */
+  .step-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px; /* Changed from 50% to 8px for rounded corners */
+    background: linear-gradient(135deg, rgba(53, 51, 205, 0.25), rgba(168, 121, 255, 0.15));
+    backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: "SF Pro Display",;
+    font-size: 1rem;
+  }
+  /* NEW: Mobile-specific layout for step heading and text */
+    @media (max-width: 480px) {
+        .step-heading {
+            flex-direction: row;
+           
+        }
+        .step-title {
+            width: calc(100% - 44px); /* Account for number width and gap */
+        }
+        .step-text, .step-list {
+            padding-left: 0;
+        }
+        .step-list {
+          padding-left: 12px;
+        }
+      }
+
+  .step-title {
+    font-family: "SF Pro Display", sans-serif;
+    font-weight: bold;
+  }
+
+  .step-text, .step-list {
+    padding-left: 45px; /* Aligns text with the heading, not the number */
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .step-list {
+      list-style: none;
+      padding-left: 55px;
+      margin: 0;
+  }
+  .step-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    font-size: 0.8rem;
+  }
+  .step-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #3533cd;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  .sub-heading {
+      font-family: "SF Pro Display", sans-serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+  }
+    
 
     /* ✅ Comparison Cards */
     .comparison {
@@ -206,21 +287,23 @@
     .step-card {
       position: relative;
       overflow: hidden;
-      border-radius: 16px;
+      border-radius: 20px;
       backdrop-filter: blur(20px) saturate(160%);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      padding: 1rem;
-      text-align: middle;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 2rem;
+      text-align: left;
+      background: rgba(0, 0, 0, 0.1);
       transition: transform 0.15s ease, box-shadow 0.4s ease;
       font-weight: 400;
-      
-    }
+}
+
     .step-card::before {
       content: "";
-      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: radial-gradient(
         250px circle at var(--x, 50%) var(--y, 50%),
-        rgba(168, 121, 255, 0.35),
+        rgba(53, 51, 205, 0.35),
         transparent 60%
       );
       opacity: 0;
@@ -228,9 +311,79 @@
       pointer-events: none;
     }
     .step-card:hover::before { opacity: 1; }
-    .step-card ul { margin: 0; padding-left: 18px; }
 
+    .step-card h3 {
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+      color: #ffffff;
+    }
 
+    .step-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 15px;
+    }
+
+    .step-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 12px;
+      line-height: 1.5;
+      font-size: 0.95rem;
+      color: #f0f0f0;
+    }
+
+    .step-card li::before {
+      content: "✔";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-right: 8px;
+      background: #3533cd;
+      color: #fff;
+    }
+
+    .old-way li::before {
+      content: "✖";
+      background: #3533cd;
+      color: #fff;
+    }
+
+    .step-card .note {
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    .step-card .conversion {
+      text-align: center;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-top: 5px;
+      color: #ffffff;
+    }
+
+    .step-card .conversion.highlight {
+      color: #3533cd;
+    }
+
+    .step-card:hover {
+      box-shadow: 0 0 25px rgba(53, 51, 205, 0.5);
+      transform: scale(1.03);
+    }
+
+    @media (max-width: 768px) {
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+    }
     form {
       max-width:800px;
       margin:5px auto;
@@ -250,7 +403,7 @@
       padding:12px;
       border:none;
       border-radius:12px;
-      background: linear-gradient(135deg, #000000, #3533cd);
+      background:linear-gradient(135deg, rgba(53, 51, 205, 0.25), rgba(168, 121, 255, 0.15));
       color:#fff;
       cursor:pointer;
     }
@@ -311,47 +464,82 @@
       <span class="highlight">Organically</span>.
     </h1>
     <p>
-  <span class="tagline">You coach. We scale.<br>
-  Let’s grow your 1:1 offer — no guesswork, no fluff.</span>
+  <h2 class="tagline">You coach. We scale.<br>
+  Let’s grow your 1:1 offer into consistent leads and predictable growth.</h2>
 </p>
     <a href="#contact" class="btn">Book a Call →</a>
   </header>
 
-  <!-- How It Works -->
-<section id="what">
-  <div class="section-glass-heading">How It Works</div>
+<!-- How It Works Section - Rephrased from the screenshots -->
+  <section id="how-it-works">
+    <div class="section-glass-heading">HOW IT WORKS</div>
+    <div class="step-section">
+      <!-- Step 1 -->
+      <div class="step-item">
+        <div class="step-heading">
+          <div class="step-number">1</div>
+          <h3 class="step-title">Scale Your 1:1 Coaching With a Content Strategy Built Just for You</h3>
+        </div>
+        <p class="step-text">
+          After studying your business inside and out, we design a custom strategy that aligns perfectly with your 1:1 coaching program. You'll receive content ideas tailored to your niche, tone, and goals. All you need? Just 2 hours a week to record simple talking-head videos. Small move, massive ROI. That’s the power of strategic content.
+        </p>
+      </div>
 
-  <!-- Step Descriptions -->
-  <div class="step-description">
-    <h3><b>1. Scale Your 1:1 Coaching With a Custom Content Strategy</b></h3>
-    <p>
-      We analyze your business and create a strategy aligned with your 1:1 coaching program. You’ll get content ideas tailored to your niche, tone, and goals. Just two hours a week of simple video recording delivers big results.
-    </p>
-  </div>
+      <!-- Step 2 -->
+      <div class="step-item">
+        <div class="step-heading">
+          <div class="step-number">2</div>
+          <h3 class="step-title">We edit videos with clarity and purpose.</h3>
+        </div>
+        <p class="step-text">
+          Our editing style ensures that every video is easy to understand, visually engaging, and aligned with your message. The goal is simple: help your audience know exactly what you do and turn viewers into leads.
+        </p>
+        <ul class="step-list">
+          <li>Clear and professional edits</li>
+          <li>Smooth flow that keeps attention</li>
+          <li>Videos designed to convert and grow your business</li>
+        </ul>
+        <p class="step-text">
+          With us, your content becomes more than just a video—it becomes a tool for generating results.
+        </p>
+      </div>
 
-  <div class="step-description">
-    <h3>2. We Edit Videos With Clarity and Purpose</h3>
-    <p>
-      We make your videos clear, engaging, and aligned with your message so your audience knows exactly what you do. Every edit is designed to hold attention and convert viewers into clients.
-    <p>
-  </div>
+      <!-- Step 3 -->
+      <div class="step-item">
+        <div class="step-heading">
+          <div class="step-number">3</div>
+          <h3 class="step-title">We Script your videos for you</h3>
+        </div>
+        <p class="step-text sub-heading">Clear, Compelling Messaging Drives Results.</p>
+        <p class="step-text">
+          Whether you’re creating short-form videos for Instagram, TikTok, or Reels, or diving into long-form YouTube content, your message must captivate — quickly and effectively. Each month, we deliver high-converting scripts tailored to your coaching business, authentic voice, and unique offer — designed to maximize impact across formats. Your role? Simply show up and share your expertise with confidence.
+        </p>
+        <p class="step-text">Our scripts are carefully crafted to:</p>
+        <ul class="step-list">
+          <li>Capture attention and boost engagement</li>
+          <li>Address objections before your sales calls</li>
+          <li>Establish you as the undeniable expert in your niche</li>
+          <li>Enhance your content, credibility, and client conversion</li>
+        </ul>
+        <p class="step-text">Strategic scripting = powerful content.</p>
+        <p class="step-text">Powerful content = consistent leads, accelerated sales, and growing authority.</p>
+      </div>
+      
+      <!-- Step 4 -->
+      <div class="step-item">
+        <div class="step-heading">
+          <div class="step-number">4</div>
+          <h3 class="step-title">We Create catchy thumbnails that attract High Ticket Clients</h3>
+        </div>
+        <p class="step-text">
+          Your thumbnail is the first thing people see—and it decides whether they click or scroll away. We create thumbnails tailored to your brand and messaging, designed to grab attention and maximize performance. Our goal is clear: deliver professional, eye-catching thumbnails that not only attract viewers but also convert them into leads and high-ticket clients.
+        </p>
+      </div>
 
-  <div class="step-description">
-    <h3>3. We Script Your Videos For You</h3>
-    <p> We write high-converting scripts tailored to your business, voice, and offer. Whether short or long-form, your message will grab attention and drive results. You only need to show up and share your expertise.
-    </p>
-  </div>
-
-  <div class="step-description">
-    <h3>4. We Create Thumbnails That Attract High-Ticket Clients</h3>
-    <p>
-     We design professional thumbnails that grab attention, increase clicks, and turn viewers into clients. The outcome: a channel that drives growth, not just views.
-    </p>
-  </div>
-
+    </div>  
   <!-- Comparison -->
   <div class="comparison">
-    <div class="step-card">
+    <div class="step-card old-way">
       <h3>Old Ways</h3>
       <ul>
         <li>Spending endless hours guessing content ideas</li>
