@@ -27,19 +27,7 @@
       color: #fff;
       scroll-behavior: smooth;
     }
-      /* iOS Safari fix: body becomes black, gradient moves to wrapper */
-    @supports (-webkit-touch-callout: none) {
-      body {
-        background: #000 !important; /* solid black for status bar */
-      }
-      .page-bg {
-        background-image: linear-gradient(135deg, rgba(53, 51, 205, 0.25), rgba(168, 121, 255, 0.15));
-        background-attachment: fixed;
-        background-size: cover;
-        background-repeat: no-repeat;
-      }
-    }
-
+    
        /* Background blur overlay */
       body::before {
       content: "";
@@ -95,10 +83,6 @@
       font-weight: 800;
     }
     
-    body.ios-fix .page-bg {
-  background-image: linear-gradient(135deg, rgba(53, 51, 205, 0.25), rgba(168, 121, 255, 0.15));
-}
-
     /* Mobile Navbar */
     .mobile-nav {
       position: fixed;
@@ -663,11 +647,6 @@
       } catch (error) {
         showStatus("Network error. Please try again.", "error");
       }
-      if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
-  document.body.style.background = "#000"; // solid black
-  document.body.classList.add("ios-fix");
-}
-
     
     });
   </script>
