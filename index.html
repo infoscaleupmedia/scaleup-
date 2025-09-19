@@ -3,12 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!-- Default for desktop (keeps gradient behavior untouched) -->
-<meta name="theme-color" content="#000000" media="(max-width: 768px)">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
+  
   <title>ScaleUp </title>
-
+  
 
   <!-- Fonts -->
   <link href="https://fonts.cdnfonts.com/css/europa" rel="stylesheet">
@@ -648,19 +645,8 @@
         }
       } catch (error) {
         showStatus("Network error. Please try again.", "error");
-        
-  // Detect if user is on mobile
-  if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-    let theme = document.querySelector("meta[name='theme-color']");
-    if (!theme) {
-      theme = document.createElement("meta");
-      theme.setAttribute("name", "theme-color");
-      document.head.appendChild(theme);
-    }
-    theme.setAttribute("content", "#000000"); // Always black on mobile
-  }
-
       }
+    
     });
   </script>
 </body>
