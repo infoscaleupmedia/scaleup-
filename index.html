@@ -26,17 +26,54 @@
       min-height: 100vh;
       color: #fff;
       scroll-behavior: smooth;
-      overscroll-behavior: none;
     }
-/* Background blur overlay */
-      body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: inherit;  /* uses same gradient as body */
-      backdrop-filter: blur(8px);  /* blur strength */
-      z-index: -1;  /* stays behind everything */
-    }
+    body {
+  margin: 0;
+  padding: 0;
+  background: none; /* remove gradient here */
+}
+@supports (-webkit-touch-callout: none) {
+  body {
+    background-attachment: scroll !important; /* fallback for iOS */
+  }
+}
+
+
+/* Main gradient background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(
+    135deg,
+    #000000 0%,
+    #3533cd59 60%   /* sRGB purple w/ 35% opacity */
+  );
+  background-color: #000000; /* fallback */
+}
+
+/* Blur overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* iOS Safari ONLY — disable wide color (force same as Mac) */
+@supports (-webkit-touch-callout: none) {
+  body::before {
+    /* Force iOS Safari to not use Display-P3 */
+    background: linear-gradient(
+      135deg,
+      #000000 0%,
+      #3533cd59 60%   /* same hex/alpha so it's identical */
+    ) !important;
+  }
+}
 
     h1, h2, h3 { font-family: "SF Pro Display", sans-serif; font-weight: 400; }
     p, input, textarea, button, a, span { font-family: "Europa", sans-serif; }
@@ -70,13 +107,13 @@
 @media (max-width: 420px) {
   h1 { font-size: 1.1rem; }
   h2 { font-size: 0.5rem; }
-  h3 { font-size: 1rem; }
+  h3 { font-size: 0.8rem; }
   p  { font-size: 0.8rem; }
   li { font-size: 0.6rem; }
     }
     h1 .highlight {
       color: #3533cd;
-      font-weight: 1000;
+      font-weight: 800;
       height: 3px;
     }
     h3 {
@@ -94,6 +131,8 @@
       height: 55px;
       background: rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -223,7 +262,15 @@
             padding-left: 0;
         }
         .step-list {
-          padding-left: 12px;
+          padding-left: 1px;
+      
+          
+        }
+        .step-number{
+        font-size: small;
+            width: 27px;
+    height: 27px;
+    border-radius: 8px;
         }
       }
 
@@ -318,7 +365,7 @@
     .step-card h3 {
       text-align: center;
       margin-bottom: 15px;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       color: #ffffff;
     }
 
@@ -382,7 +429,7 @@
       transform: scale(1.03);
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 700px) {
       .comparison {
         grid-template-columns: 1fr;
       }
