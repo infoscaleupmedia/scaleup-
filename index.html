@@ -401,13 +401,15 @@ body::after {
       font-weight: bold;
       margin-right: 8px;
       background: #3533cd;
-      color: #fff;
+      color: #fff !important;      /* force white */
+      -webkit-text-fill-color: #fff; /* fix Safari/iOS issue */
     }
 
     .old-way li::before {
       content: "✖";
       background: #3533cd;
-      color: #fff;
+      color: #fff !important;      /* force white */
+      -webkit-text-fill-color: #fff; /* fix Safari/iOS issue */
     }
 
     .step-card .note {
