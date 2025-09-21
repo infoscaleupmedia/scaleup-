@@ -138,7 +138,6 @@ body::after {
       align-items: center;
       padding: 0 16px;
       border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
       z-index: 1000;
       transition: all 0.3s ease-in-out;
     }
@@ -199,7 +198,9 @@ body::after {
       font-size: 0.60rem;
       font-weight: 450;
       letter-spacing: 1px;
-      background:rgba(0, 0, 0, 0.1);
+      background: rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       background-attachment: fixed;
       border-radius: 6px;
       border: 1px solid rgba(255, 255, 255, 0.15);
@@ -338,7 +339,10 @@ body::after {
       position: relative;
       overflow: hidden;
       border-radius: 20px;
-      backdrop-filter: blur(20px) saturate(160%);
+       background: rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.15);
       padding: 2rem;
       text-align: left;
@@ -352,7 +356,7 @@ body::after {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       background: radial-gradient(
-        250px circle at var(--x, 50%) var(--y, 50%),
+        200px circle at var(--x, 50%) var(--y, 50%),
         rgba(53, 51, 205, 0.35),
         transparent 60%
       );
@@ -445,18 +449,30 @@ body::after {
       padding:12px;
       border:none;
       border-radius:12px;
-      background:linear-gradient(135deg, rgba(53, 51, 205, 0.25), rgba(168, 121, 255, 0.15));
-      color:#ffffff;
+      background: rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color:#fff;
       font-size:1rem;
     }
     button {
       padding:12px;
       border:none;
       border-radius:12px;
-      background:linear-gradient(135deg, rgba(53, 51, 205, 0.25), rgba(168, 121, 255, 0.15));
+      background: rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       color:#fff;
       cursor:pointer;
-    }
+      transition: all 0.2s ease;  /* ✅ Add animation */
+}
+
+button:hover {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
      /* ✅ Toast Notification */
     #status {
       position: fixed;
