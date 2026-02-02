@@ -546,10 +546,11 @@ button:hover {
       <div class="step-item">
         <div class="step-heading">
           <div class="step-number">1</div>
-          <h3 class="step-title">Scale Your 1:1 Coaching With a Content Strategy Built Just for You</h3>
+          <h3 class="step-title">Brand, Research & Positioning</h3>
         </div>
         <p class="step-text">
-          After studying your business inside and out, we design a custom strategy that aligns perfectly with your 1:1 coaching program. You'll receive content ideas tailored to your niche, tone, and goals. All you need? Just 2 hours a week to record simple talking-head videos. Small move, massive ROI. That’s the power of strategic content.
+We start by defining your brand identity, messaging, and positioning.
+Through deep market research, we identify content angles, hooks, and gaps your competitors are missing — so your content stands out and attracts the right clients.
         </p>
       </div>
 
@@ -557,18 +558,22 @@ button:hover {
       <div class="step-item">
         <div class="step-heading">
           <div class="step-number">2</div>
-          <h3 class="step-title">We edit videos with clarity and purpose.</h3>
+          <h3 class="step-title">Content That Builds Authority & Demand</h3>
         </div>
         <p class="step-text">
-          Our editing style ensures that every video is easy to understand, visually engaging, and aligned with your message. The goal is simple: help your audience know exactly what you do and turn viewers into leads.
-        </p>
+         We script, edit, and structure your content to do one thing:
+turn attention into trust and trust into booked calls.
+
+Every month you get:
+
         <ul class="step-list">
-          <li>Clear and professional edits</li>
-          <li>Smooth flow that keeps attention</li>
-          <li>Videos designed to convert and grow your business</li>
+          <li>20 high-performing short-form videos</li>
+          <li>4 long-form authority videos</li>
+          <li>Conversion-focused scripts</li>   
+          <li>4 scroll-stopping thumbnails</li>
         </ul>
         <p class="step-text">
-          With us, your content becomes more than just a video—it becomes a tool for generating results.
+          Built specifically for your niche, voice, and 1:1 offer.
         </p>
       </div>
 
@@ -576,31 +581,34 @@ button:hover {
       <div class="step-item">
         <div class="step-heading">
           <div class="step-number">3</div>
-          <h3 class="step-title">We Script your videos for you</h3>
+          <h3 class="step-title">Distribution & Growth</h3>
         </div>
-        <p class="step-text sub-heading">Clear, Compelling Messaging Drives Results.</p>
+
         <p class="step-text">
-          Whether you’re creating short-form videos for Instagram, TikTok, or Reels, or diving into long-form YouTube content, your message must captivate — quickly and effectively. Each month, we deliver high-converting scripts tailored to your coaching business, authentic voice, and unique offer — designed to maximize impact across formats. Your role? Simply show up and share your expertise with confidence.
+          Great content is useless without distribution.
+We strategically publish and optimize your content to grow your personal brand consistently across platforms.
         </p>
-        <p class="step-text">Our scripts are carefully crafted to:</p>
-        <ul class="step-list">
-          <li>Capture attention and boost engagement</li>
-          <li>Address objections before your sales calls</li>
-          <li>Establish you as the undeniable expert in your niche</li>
-          <li>Enhance your content, credibility, and client conversion</li>
-        </ul>
-        <p class="step-text">Strategic scripting = powerful content.</p>
-        <p class="step-text">Powerful content = consistent leads, accelerated sales, and growing authority.</p>
+
       </div>
       
       <!-- Step 4 -->
       <div class="step-item">
         <div class="step-heading">
           <div class="step-number">4</div>
-          <h3 class="step-title">We Create catchy thumbnails that attract High Ticket Clients</h3>
+          <h3 class="step-title">DFY Systems & Automation</h3>
         </div>
         <p class="step-text">
-          Your thumbnail is the first thing people see—and it decides whether they click or scroll away. We create thumbnails tailored to your brand and messaging, designed to grab attention and maximize performance. Our goal is clear: deliver professional, eye-catching thumbnails that not only attract viewers but also convert them into leads and high-ticket clients.
+         We build the backend so nothing breaks as you scale.
+
+Done-For-You Systems include:
+<ul class="step-list">
+          <li>Notion content & client workspace</li>
+          <li>Instagram automation & lead tracking</li>
+          <li>Zapier automations</li>   
+          <li>Slack & Discord integrations</li>
+        </ul>
+        <p class="step-text">
+          Everything centralized. Everything tracked.
         </p>
       </div>
 
@@ -610,17 +618,21 @@ button:hover {
     <div class="step-card old-way">
       <h3>Old Ways</h3>
       <ul>
-        <li>Spending endless hours guessing content ideas</li>
-        <li>No clear strategy to scale 1:1 coaching</li>
-        <li>Struggling to stay consistent</li>
+        <li>Random content ideas</li>
+        <li>No clear growth strategy</li>
+        <li>Manually tracking leads</li>
+        <li>Inconsistent posting</li>
+        <li>Content that doesn’t conver</li>
       </ul>
     </div>
     <div class="step-card">
       <h3>New Ways</h3>
       <ul>
-        <li>People believe in content — it’s a life-changing decision</li>
-        <li>Clients trust you more when you manage your social media</li>
-        <li>It attracts high-ticket clients</li>
+        <li>Clear brand & positioning</li>
+        <li>Content built to attract high-ticket clientsa</li>
+        <li>Automated tracking & systems</li>
+        <li>Consistent execution</li>
+        <li>Predictable inbound inquiries</li>
       </ul>
     </div>
   </div>
@@ -640,8 +652,7 @@ button:hover {
 
 
 <!-- Hidden Calendly widget (only appears after form submit) -->
-<div id="calendly-wrapper" style="display:none; margin-top:30px;">
-<h3>Book Your Call</h3>
+<div id="calendly-wrapper" style="display:none;">
 <div class="calendly-inline-widget" data-url="https://calendly.com/abdullahamir237899/strategycall" style="width:100%; height:900px;"></div>
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </div>
@@ -653,17 +664,19 @@ button:hover {
   <div id="status"></div>
   <script>
        const mobileNav = document.getElementById("mobileNav");
-       const contactSection = document.getElementById("contact");
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollPercent = (scrollTop / docHeight) * 100;
 
-       window.addEventListener("scroll", () => {
-       const formTop = contactSection.getBoundingClientRect().top;
+  if (scrollPercent >= 50) {
+    mobileNav.classList.add("scrolled");
+  } else {
+    mobileNav.classList.remove("scrolled");
+  }
+});
 
-       if (formTop <= 50) {
-       mobileNav.classList.add("scrolled");
-       } else {
-        mobileNav.classList.remove("scrolled");
-     }
-      });
+
 
     // Tilt + glow effect for step cards
     document.querySelectorAll(".step-card").forEach(card => {
